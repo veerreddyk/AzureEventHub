@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="encodeutf8">true</value>
+  <value name="shared"></value>
+  <value name="extends"></value>
+  <array name="implements" type="value" depth="1">
+  </array>
+  <array name="imports" type="value" depth="1">
+    <value>custom.azure.messaging.eventhubs.*</value>
+    <value>java.util.*</value>
+    <value>custom.azure.core.credential.TokenCredential</value>
+    <value>custom.azure.identity.ClientSecretCredentialBuilder</value>
+    <value>custom.azure.messaging.eventhubs.models.CreateBatchOptions</value>
+    <value>custom.azure.core.http.HttpClient</value>
+    <value>custom.azure.core.http.netty.NettyAsyncHttpClientBuilder</value>
+  </array>
+</Values>
