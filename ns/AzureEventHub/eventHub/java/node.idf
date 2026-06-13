@@ -12,5 +12,7 @@
     <value>com.azure.core.credential.TokenCredential</value>
     <value>com.azure.identity.ClientSecretCredentialBuilder</value>
     <value>com.azure.messaging.eventhubs.models.CreateBatchOptions</value>
+    <value>com.azure.core.http.HttpClient</value>
+    <value>com.azure.core.http.netty.NettyAsyncHttpClientBuilder</value>
   </array>
 </Values>
