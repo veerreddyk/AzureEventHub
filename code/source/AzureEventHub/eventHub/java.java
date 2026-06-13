@@ -12,8 +12,6 @@ import java.util.*;
 import com.azure.core.credential.TokenCredential;
 import com.azure.identity.ClientSecretCredentialBuilder;
 import com.azure.messaging.eventhubs.models.CreateBatchOptions;
-import com.azure.core.http.HttpClient;
-import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
 // --- <<IS-END-IMPORTS>> ---
 
 public final class java
@@ -98,7 +96,7 @@ public final class java
 		                    : namespace + ".servicebus.windows.net";
 		
 		    //  Create HTTP client (FIX FOR YOUR ERROR)
-		    HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+		   
 		
 		    //  Create credential (ATTACH HTTP CLIENT HERE )
 		    TokenCredential credential =
@@ -106,7 +104,6 @@ public final class java
 		                    .tenantId(tenantId)
 		                    .clientId(clientId)
 		                    .clientSecret(clientSecret)
-		                    .httpClient(httpClient)
 		                    .build();
 		
 		    //  Create Event Hub producer
