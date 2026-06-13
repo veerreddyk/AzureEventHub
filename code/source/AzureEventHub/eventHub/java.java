@@ -7,13 +7,13 @@ import com.wm.util.Values;
 import com.wm.app.b2b.server.Service;
 import com.wm.app.b2b.server.ServiceException;
 // --- <<IS-START-IMPORTS>> ---
-import custom.azure.messaging.eventhubs.*;
+import com.azure.messaging.eventhubs.*;
 import java.util.*;
-import custom.azure.core.credential.TokenCredential;
-import custom.azure.identity.ClientSecretCredentialBuilder;
-import custom.azure.messaging.eventhubs.models.CreateBatchOptions;
-import custom.azure.core.http.HttpClient;
-import custom.azure.core.http.netty.NettyAsyncHttpClientBuilder;
+import com.azure.core.credential.TokenCredential;
+import com.azure.identity.ClientSecretCredentialBuilder;
+import com.azure.messaging.eventhubs.models.CreateBatchOptions;
+import com.azure.core.http.HttpClient;
+import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
 // --- <<IS-END-IMPORTS>> ---
 
 public final class java
@@ -29,54 +29,6 @@ public final class java
 
 	// ---( server methods )---
 
-
-
-
-	public static final void eventHubClient (IData pipeline)
-        throws ServiceException
-	{
-		// --- <<IS-START(eventHubClient)>> ---
-		// @sigtype java 3.5
-		IDataCursor cursor = pipeline.getCursor();
-		
-		String connectionString = IDataUtil.getString(cursor, "connectionString");
-		String eventHubName = IDataUtil.getString(cursor, "eventHubName");
-		String message = IDataUtil.getString(cursor, "message");
-		
-		cursor.destroy();
-		
-		EventHubProducerClient producer = null;
-		
-		try {
-		// Create producer client
-		producer = new EventHubClientBuilder()
-		        .connectionString(connectionString, eventHubName)
-		        .buildProducerClient();
-		
-		// Create batch
-		EventDataBatch batch = producer.createBatch();
-		
-		// Add event
-		EventData event = new EventData(message);
-		if (!batch.tryAdd(event)) {
-		    throw new ServiceException("Message too large for batch");
-		}
-		
-		// Send event
-		producer.send(batch);
-		
-		} catch (Exception e) {
-			throw new ServiceException("Error sending message: " + e.getMessage());
-		} finally {
-		if (producer != null) {
-		    producer.close();
-		}
-		}
-			
-		// --- <<IS-END>> ---
-
-                
-	}
 
 
 
@@ -104,7 +56,7 @@ public final class java
 		String eventData = null;
 		String partitionKey = null;
 		
-		EventHubProducerClient producer = null;
+		EventHubProducerClient producer = null; 
 		
 		try {
 		    //  Read config
@@ -112,6 +64,7 @@ public final class java
 		    if (config == null) {
 		        throw new ServiceException("config document is missing");
 		    }
+		    
 		
 		    IDataCursor configCursor = config.getCursor();
 		    tenantId = IDataUtil.getString(configCursor, "tenantId");

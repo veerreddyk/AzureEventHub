@@ -7,12 +7,12 @@
   <array name="implements" type="value" depth="1">
   </array>
   <array name="imports" type="value" depth="1">
-    <value>custom.azure.messaging.eventhubs.*</value>
+    <value>com.azure.messaging.eventhubs.*</value>
     <value>java.util.*</value>
-    <value>custom.azure.core.credential.TokenCredential</value>
-    <value>custom.azure.identity.ClientSecretCredentialBuilder</value>
-    <value>custom.azure.messaging.eventhubs.models.CreateBatchOptions</value>
-    <value>custom.azure.core.http.HttpClient</value>
-    <value>custom.azure.core.http.netty.NettyAsyncHttpClientBuilder</value>
+    <value>com.azure.core.credential.TokenCredential</value>
+    <value>com.azure.identity.ClientSecretCredentialBuilder</value>
+    <value>com.azure.messaging.eventhubs.models.CreateBatchOptions</value>
+    <value>com.azure.core.http.HttpClient</value>
+    <value>com.azure.core.http.netty.NettyAsyncHttpClientBuilder</value>
   </array>
 </Values>
