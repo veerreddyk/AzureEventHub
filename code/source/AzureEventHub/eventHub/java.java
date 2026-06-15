@@ -54,8 +54,7 @@ public final class java
 		String eventData = null;
 		String partitionKey = null;
 		
-		
-		EventHubProducerClient producer = null;
+		EventHubProducerClient producer = null; 
 		
 		try {
 		    //  Read config
@@ -97,23 +96,16 @@ public final class java
 		                    : namespace + ".servicebus.windows.net";
 		
 		    //  Create HTTP client (FIX FOR YOUR ERROR)
-		    //HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+		   
 		
 		    //  Create credential (ATTACH HTTP CLIENT HERE )
-		    /*TokenCredential credential =
-		            new ClientSecretCredentialBuilder()
-		                    .tenantId(tenantId)
-		                    .clientId(clientId)
-		                    .clientSecret(clientSecret)
-		                    .httpClient(httpClient)
-		                    .build();
-		    */
 		    TokenCredential credential =
 		            new ClientSecretCredentialBuilder()
 		                    .tenantId(tenantId)
 		                    .clientId(clientId)
 		                    .clientSecret(clientSecret)
 		                    .build();
+		
 		    //  Create Event Hub producer
 		    producer = new EventHubClientBuilder()
 		            .credential(fqNamespace, eventHubName, credential)
@@ -167,6 +159,11 @@ public final class java
 		
 		    pipelineCursor.destroy();
 		}
+		
+		
+		
+		
+			
 		// --- <<IS-END>> ---
 
                 
