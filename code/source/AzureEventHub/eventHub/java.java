@@ -44,6 +44,8 @@ public final class java
 		// [i] record:0:required inputDoc
 		// [i] - field:0:required eventData
 		// [i] - field:0:required partitionKey
+		// [o] field:0:required success
+		// [o] field:0:required message
 		IDataCursor pipelineCursor = pipeline.getCursor();
 		
 		String tenantId = null;
@@ -95,7 +97,6 @@ public final class java
 		                    ? namespace
 		                    : namespace + ".servicebus.windows.net";
 		
-		    //  Create HTTP client (FIX FOR YOUR ERROR)
 		   
 		
 		    //  Create credential (ATTACH HTTP CLIENT HERE )
